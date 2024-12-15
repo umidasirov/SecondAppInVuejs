@@ -2,20 +2,22 @@
 export default {
   data() {
     return {
-      selected: 'a' // Будем использовать одно состояние для хранения выбранной кнопки
+      filter:"",
+      selected: 'a'
     }
   },
   props:{
-    Films:{
-      type:Array,
+    updateFilterHandler:{
+      type:Function,
       required:true
     }
   },
   methods: {
-    selectButton(button) {
+    filterHandler(filter,button){
       this.selected = button;
+      this.filter = filter
+      this.updateFilterHandler(this.filter)
     },
-
   }
 }
 </script>
@@ -24,19 +26,20 @@ export default {
   <div class="btn-group">
     <button
         :class="['btn', selected === 'a' ? 'btn-dark' : 'btn-outline-dark']"
-        @click="selectButton('a')"
+        @click="filterHandler('all','a')"
+
     >
       barcha kinolar
     </button>
     <button
         :class="['btn', selected === 'b' ? 'btn-dark' : 'btn-outline-dark']"
-        @click="selectButton('b')"
+        @click="filterHandler('popular','b')"
     >
       mashxur kinolar
     </button>
     <button
         :class="['btn', selected === 'c' ? 'btn-dark' : 'btn-outline-dark']"
-        @click="selectButton('c')"
+        @click='filterHandler("mostViewers","c")'
     >
       eng kop korilgan kinolar
     </button>

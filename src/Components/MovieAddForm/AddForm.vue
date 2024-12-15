@@ -15,7 +15,7 @@ props:{
 },
   methods:{
     addDatas(){
-        this.Films.push({name:this.filmName,views:this.viewNum,year:2000,favourite:false})
+        this.Films.push({name:this.filmName,views:this.viewNum,year:2000,favourite:false,id:Date.now()})
         this.filmName = ""
         this.viewNum = ''
 

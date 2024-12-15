@@ -2,8 +2,18 @@
 export default {
   data(){
     return{
-    allFilms:23,
-      moreWatchedFilms:12
+    allFilms:this.AllFilms,
+    moreWatchedFilms:12
+    }
+  },
+  props:{
+    AllFilms:{
+      type:Number,
+      required:true
+    },
+    FavoureiteFilm:{
+      type:Number,
+      required:true
     }
   }
 }
@@ -11,8 +21,8 @@ export default {
 
 <template>
 <div class="app-info">
-  <h1>Barcha kinolar soni: {{allFilms}}</h1>
-  <h2>ko'p ko'rilgan kinolar soni: {{moreWatchedFilms}}</h2>
+  <h1>Barcha kinolar soni: {{AllFilms}}</h1>
+  <h2>ko'p ko'rilgan kinolar soni: {{FavoureiteFilm}}</h2>
 </div>
 </template>
 

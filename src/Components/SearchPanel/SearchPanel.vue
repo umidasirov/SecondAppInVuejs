@@ -11,8 +11,12 @@ export  default {
     }
   },
   props:{
-    Films:{
-      type:Array,
+    updateTermHandler:{
+      type:Function,
+      required:true
+    },
+    updateFilterHandler:{
+      type:Function,
       required:true
     }
   }
@@ -21,8 +25,8 @@ export  default {
 
 <template>
   <div class="search-panel input">
-    <Input img="img"/>
-    <Filter :Films="Films"/>
+    <Input img="img" :term="term" :updateTermHandler="updateTermHandler"/>
+    <Filter :updateFilterHandler="updateFilterHandler"/>
   </div>
 </template>
 

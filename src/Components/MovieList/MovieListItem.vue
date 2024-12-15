@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <li :class="['list-group-item', 'd-flex', 'justify-content-between', item.favourite ? 'like favourite' : '']" v-for="(item,index) in List">
+  <li :class="['list-group-item', 'd-flex', 'justify-content-between', item.favourite ? 'like favourite' : '']" v-for="(item,index) in List" key="index">
   <span className="list-group-item-label">{{item.name}}</span>
   <input type="number" v-model="item.views" />
   <div className="d-flex justify-content-center aling-items-center">
